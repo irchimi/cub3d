@@ -12,10 +12,39 @@ typedef struct	s_display_sizes
 	size_t	width;
 }				t_display_sizes;
 
+typedef struct	s_texture
+{
+	char 		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	char		*sprite;
+}				t_texture;
+
+typedef	struct		s_sprite
+{
+	int				x;
+	int				y;
+	struct s_sprite	*next;
+}					t_sprite;
+
+typedef struct	s_player
+{
+	int			x;
+	int 		y;
+	char		direction;
+}				t_player;
+
+
 typedef struct			s_setting
 {
 	t_display_sizes		size;
+	t_texture			texture;
+	t_player			player;
+	t_sprite			*sprite;
 	char				**map;
+	int					start_map;
+	int					flag_map;
 }						t_setting;
 
 #endif
