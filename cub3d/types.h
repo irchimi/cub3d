@@ -35,6 +35,18 @@ typedef struct	s_player
 	char		direction;
 }				t_player;
 
+typedef struct  s_color
+{
+	int r;
+	int g;
+	int b;
+}				t_color;
+
+typedef struct s_colors_map
+{
+	t_color floor;
+	t_color ceilling;
+}				t_colors_map;
 
 typedef struct			s_setting
 {
@@ -42,6 +54,7 @@ typedef struct			s_setting
 	t_texture			texture;
 	t_player			player;
 	t_sprite			*sprite;
+	t_colors_map		colors;
 	char				**map;
 	int					start_map;
 	int					flag_map;
