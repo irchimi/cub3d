@@ -48,6 +48,14 @@ typedef struct s_colors_map
 	t_color ceilling;
 }				t_colors_map;
 
+typedef	struct	s_map
+{
+	char		**map;
+	int			len;
+	int			flag_map;
+	int			start_map;
+}				t_map;
+
 typedef struct			s_setting
 {
 	t_display_sizes		size;
@@ -55,9 +63,7 @@ typedef struct			s_setting
 	t_player			player;
 	t_sprite			*sprite;
 	t_colors_map		colors;
-	char				**map;
-	int					start_map;
-	int					flag_map;
+	t_map				map;
 }						t_setting;
 
 #endif
