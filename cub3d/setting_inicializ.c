@@ -39,7 +39,7 @@ t_setting		*setting_inicializ(char *file_name)
 	{
 		set = switch_set_size(data_file[len], set);
 		set = switch_set_texture(data_file[len], set);
-		//set = switch_set_color(data_file[len], set, len);
+		set = switch_set_color(data_file[len], set);
 		//set = switch_set_map(data_file[len], set, len);
 		len++;
 	}
@@ -72,31 +72,43 @@ t_setting		*switch_set_size(char *line, t_setting *set)
 		tmp = ft_substr(line,  find_end(line, ' '), ft_strlen(line) - find_end(line, ' '));
 		set->size.width = ft_atoi(tmp);
 		free(tmp);
-		printf("%d %d", set->size.height,set->size.width);
 	}
 	return (set);
 }
 
-/*
-t_setting		*switch_set_color(char *line, t_setting *set, int iter)
+
+t_setting		*switch_set_color(char *line, t_setting *set)
 {
+	char	*tmp;
+
 	if (line[0] == 'F' && line[1] == ' ')
 	{
-		set->texture.sprite = "";
+		tmp = ft_substr(line, find_start(line, ' '), find_start(line, ',') - find_start(line, ' '));
+		set->colors.floor.r = ft_atoi(tmp);
+		free(tmp);
+		tmp = ft_substr(line, find_start(line, ',') + 1, find_end(line, ',') - find_start(line, ','));
+		set->colors.floor.g = ft_atoi(tmp);
+		free(tmp);
+		tmp = ft_substr(line, find_end(line, ',') + 1, ft_strlen(line) - find_end(line, ','));
+		set->colors.floor.b = ft_atoi(tmp);
+		free(tmp);
 	}
 	if (line[0] == 'C' && line[1] == ' ')
 	{
-		set->texture.sprite = "";
+		tmp = ft_substr(line, find_start(line, ' '), find_start(line, ',') - find_start(line, ' '));
+		set->colors.ceilling.r = ft_atoi(tmp);
+		free(tmp);
+		tmp = ft_substr(line, find_start(line, ',') + 1, find_end(line, ',') - find_start(line, ','));
+		set->colors.ceilling.g = ft_atoi(tmp);
+		free(tmp);
+		tmp = ft_substr(line, find_end(line, ',') + 1, ft_strlen(line) - find_end(line, ','));
+		set->colors.ceilling.b = ft_atoi(tmp);
+		free(tmp);
 		set->flag_map = 1;
-	}
-	if (set->flag_map == 1 && set->start_map == 0 && line)
-	{
-		set->flag_map = 2;
-		set->start_map = iter;
 	}
 	return (set);
 }
-
+/*
 t_setting		*switch_set_map(char *line, t_setting *set, int iter)
 {
 	return (set);
