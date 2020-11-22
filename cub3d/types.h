@@ -8,8 +8,8 @@
 
 typedef struct	s_display_sizes
 {
-	size_t	height;
-	size_t	width;
+	int	height;
+	int	width;
 }				t_display_sizes;
 
 typedef struct	s_texture

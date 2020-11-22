@@ -19,6 +19,8 @@ SRCS = 	main.c\
 		reader.c \
 		setting_inicializ.c \
 		valid_args.c \
+		ft_substr.c \
+		ft_atoi.c \
 
 OBJS = ${SRCS:.c=.o}
 

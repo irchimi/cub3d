@@ -1,5 +1,31 @@
 #include "main.h"
 
+static int		find_start(char *str, char c)
+{
+	int len;
+
+	len = 0;
+	while (str[len] && str[len] != c)
+		len++;
+	return (len);
+}
+
+static int		find_end(char *str, char c)
+{
+	int len;
+	int result;
+
+	result = 0;
+	len = 0;
+	while (str[len])
+	{
+		if (str[len] == c)
+			result = len;
+		len++;
+	}
+	return (result);
+}
+
 t_setting		*setting_inicializ(char *file_name)
 {
 	t_setting *set;
@@ -11,43 +37,52 @@ t_setting		*setting_inicializ(char *file_name)
 	data_file = reader_input_data(file_name);
 	while (data_file[len])
 	{
-		set = switch_setting(data_file[len], set, len);
-		printf("%s\n", data_file[len]);
+		set = switch_set_size(data_file[len], set);
+		set = switch_set_texture(data_file[len], set);
+		//set = switch_set_color(data_file[len], set, len);
+		//set = switch_set_map(data_file[len], set, len);
 		len++;
 	}
 	return (set);
 }
 
-t_setting		*switch_setting(char *line, t_setting *set, int iter)
+t_setting		*switch_set_texture(char *line, t_setting *set)
 {
+	if (line[0] == 'N' && line[1] == 'O' && line[2] == ' ')
+		set->texture.no = ft_substr(line, find_start(line, '.'), ft_strlen(line) - find_start(line, '.'));
+	if (line[0] == 'S' && line[1] == 'O' && line[2] == ' ')
+		set->texture.so = ft_substr(line, find_start(line, '.'), ft_strlen(line) - find_start(line, '.'));
+	if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
+		set->texture.we = ft_substr(line, find_start(line, '.'), ft_strlen(line) - find_start(line, '.'));
+	if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
+		set->texture.ea = ft_substr(line, find_start(line, '.'), ft_strlen(line) - find_start(line, '.'));
+	if (line[0] == 'S' && line[1] == ' ')
+		set->texture.sprite = ft_substr(line, find_start(line, '.'), ft_strlen(line) - find_start(line, '.'));
+	return (set);
+}
+
+t_setting		*switch_set_size(char *line, t_setting *set)
+{
+	char	*tmp;
 	if (line[0] == 'R' && line[1] == ' ')
 	{
-		set->size.width = 1900;
-		set->size.height = 1900;
+		tmp = ft_substr(line, find_start(line, ' '), find_end(line, ' ') - find_start(line, ' '));
+		set->size.height = ft_atoi(tmp);
+		free(tmp);
+		tmp = ft_substr(line,  find_end(line, ' '), ft_strlen(line) - find_end(line, ' '));
+		set->size.width = ft_atoi(tmp);
+		free(tmp);
+		printf("%d %d", set->size.height,set->size.width);
 	}
-	if (line[0] == 'N' && line[1] == 'O' && line[2] == ' ')
-	{
-		set->texture.no = "";
-	}
-	if (line[0] == 'S' && line[1] == 'O' && line[2] == ' ')
-	{
-		set->texture.so = "";
-	}
-	if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
-	{
-		set->texture.we = "";
-	}
-	if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
-	{
-		set->texture.ea = "";
-	}
-	if (line[0] == 'S' && line[1] == ' ')
-	{
-		set->texture.sprite = "";
-	}
+	return (set);
+}
+
+/*
+t_setting		*switch_set_color(char *line, t_setting *set, int iter)
+{
 	if (line[0] == 'F' && line[1] == ' ')
 	{
-	set->texture.sprite = "";
+		set->texture.sprite = "";
 	}
 	if (line[0] == 'C' && line[1] == ' ')
 	{
@@ -61,3 +96,9 @@ t_setting		*switch_setting(char *line, t_setting *set, int iter)
 	}
 	return (set);
 }
+
+t_setting		*switch_set_map(char *line, t_setting *set, int iter)
+{
+	return (set);
+}
+*/
