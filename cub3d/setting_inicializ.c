@@ -111,6 +111,11 @@ t_setting		*switch_set_color(char *line, t_setting *set)
 
 t_setting		*switch_set_map(char *line, t_setting *set, int iter, char **data)
 {
+	int count;
+	int i_cpy;
+
+	i_cpy = (iter + 1);
+	count = 0;
 	if (set->map.flag_map == 1 && line)
 	{
 		set->map.flag_map = 2;
@@ -121,7 +126,16 @@ t_setting		*switch_set_map(char *line, t_setting *set, int iter, char **data)
 		set->map.len = count_len_map(data, iter);
 		if (!(set->map.map = (char **)malloc(sizeof(char *) * (set->map.len + 1))))
 			return (error_malloc());
-		printf("%d\n", set->map.len);
+		while (count < (set->map.len - 1))
+		{
+			if (data[i_cpy][0] == '1' || data[i_cpy][0] == '0' || data[i_cpy][0] == ' ')
+			{
+				set->map.map[count] = data[i_cpy];
+				count++;
+			}
+			i_cpy++;
+		}
+		set->map.map[count] = NULL;
 		set->map.flag_map = 3;
 	}
 	return (set);
