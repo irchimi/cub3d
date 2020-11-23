@@ -16,8 +16,17 @@ char		**reader_input_data(char *file_name)
 	}
 	while (get_next_line(file, &line))
 	{
-		line[ft_strlen(line)] = '\t';
+		if (ft_strlen(line) == 0)
+		{
+			line = ft_strjoin(line, "-");
+			line = ft_strjoin(line, "\t");
+		}
+		else
+		{
+			line = ft_strjoin(line, "\t");
+		}
 		result_in_one_line = ft_strjoin(result_in_one_line, line);
+		free(line);
 	}
 	result = ft_split(result_in_one_line, '\t');
 	if (result == NULL)

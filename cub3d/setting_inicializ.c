@@ -40,7 +40,7 @@ t_setting		*setting_inicializ(char *file_name)
 		set = switch_set_size(data_file[len], set);
 		set = switch_set_texture(data_file[len], set);
 		set = switch_set_color(data_file[len], set);
-		//set = switch_set_map(data_file[len], set, len);
+		set = switch_set_map(data_file[len], set, len, data_file);
 		len++;
 	}
 	return (set);
@@ -104,13 +104,51 @@ t_setting		*switch_set_color(char *line, t_setting *set)
 		tmp = ft_substr(line, find_end(line, ',') + 1, ft_strlen(line) - find_end(line, ','));
 		set->colors.ceilling.b = ft_atoi(tmp);
 		free(tmp);
-		set->flag_map = 1;
+		set->map.flag_map = 1;
 	}
 	return (set);
 }
-/*
-t_setting		*switch_set_map(char *line, t_setting *set, int iter)
+
+t_setting		*switch_set_map(char *line, t_setting *set, int iter, char **data)
 {
+	if (set->map.flag_map == 1 && line)
+	{
+		set->map.flag_map = 2;
+		set->map.start_map = iter;
+	}
+	if (set->map.flag_map == 2)
+	{
+		set->map.len = count_len_map(data, iter);
+		if (!(set->map.map = (char **)malloc(sizeof(char *) * (set->map.len + 1))))
+			return (error_malloc());
+		printf("%d\n", set->map.len);
+		set->map.flag_map = 3;
+	}
 	return (set);
 }
-*/
+
+int 		count_len_map(char **data, int iter)
+{
+	int len;
+	int flag_error;
+
+	flag_error = 0;
+	len = 0;
+	while (data[iter])
+	{
+		if ((data[iter][0] == '1' || data[iter][0] == '0' || data[iter][0] == ' ') && (flag_error == 0 || flag_error == 1))
+		{
+			len++;
+			flag_error = 1;
+		}
+		if (!(data[iter][0] == '1' || data[iter][0] == '0' || data[iter][0] == ' ') && len >= 1)
+		{
+			flag_error = 2;
+			return (error_map());
+		}
+		iter++;
+	}
+	if (len != 0)
+		len++;
+	return (len);
+}

@@ -17,11 +17,18 @@ int		error_open_file()
 int		error_map()
 {
 	printf("%s\n", "Error:\n Not valid map!");
+	exit(3);
 	return (3);
 }
 
 char		**error_read_file()
 {
 	printf("%s\n", "Error:\n Can not read file!");
+	return (0);
+}
+
+t_setting	*error_malloc()
+{
+	printf("%s\n", "Error:\n Can not malloc!");
 	return (0);
 }
