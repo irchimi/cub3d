@@ -21,6 +21,8 @@ SRCS = 	main.c\
 		valid_args.c \
 		ft_substr.c \
 		ft_atoi.c \
+		is_open.c \
+		check_valid_set.c \
 
 OBJS = ${SRCS:.c=.o}
 
@@ -35,8 +37,12 @@ CFLAGS = -Wall -Wextra -Werror -Imlx
 %.o: %.c
 	$(GCC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
+INC=%%
+
+INCLIB=$(INC)/../lib
+
 ${NAME}:	${OBJS}
-			$(GCC) -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz ${OBJS} -o $(NAME)
+			$(GCC)  ${OBJS} -o $(NAME) mlx_linux/libmlx.a -L$(INCLIB) -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lbsd -lz
 
 all:	${NAME}
 

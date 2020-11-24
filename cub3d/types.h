@@ -56,14 +56,26 @@ typedef	struct	s_map
 	int			start_map;
 }				t_map;
 
+typedef struct 	s_img
+{
+	void        *img;
+    char        *addr;
+    int         bits_per_pixel;
+    int         line_length;
+    int         endian;
+}				t_img;
+
 typedef struct			s_setting
 {
-	t_display_sizes		size;
+	t_display_sizes		size; 
 	t_texture			texture;
 	t_player			player;
 	t_sprite			*sprite;
 	t_colors_map		colors;
 	t_map				map;
+	void				*mlx;
+	void				*mlx_win;
+	t_img				img;
 }						t_setting;
 
 #endif

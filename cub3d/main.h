@@ -20,6 +20,8 @@ t_setting	*switch_set_map(char *line, t_setting *set, int iter, char **data);
 t_setting	*switch_set_color(char *line, t_setting *set);
 int		    ft_atoi(const char *str);
 int 		count_len_map(char **data, int iter);
+int         check_valid_set(t_setting *set);
+int         is_open_file(char *file_name);
 
 
 #endif
