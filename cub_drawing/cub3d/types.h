@@ -6,6 +6,15 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+# define	LEFT_MOUSE 10
+# define	ENTER 65293
+
+typedef	struct  s_win
+{
+	void		*mlx;
+	void		*mlx_win;
+}				t_win;
+
 typedef struct	s_display_sizes
 {
 	int	height;
@@ -67,14 +76,17 @@ typedef struct 	s_img
 
 typedef struct			s_setting
 {
+	t_display_sizes		size_start; 
 	t_display_sizes		size; 
 	t_texture			texture;
 	t_player			player;
 	t_sprite			*sprite;
 	t_colors_map		colors;
 	t_map				map;
-	void				*mlx;
-	void				*mlx_win;
+	//void				*mlx;
+	//void				*mlx_win;
+	t_win				win_start;
+	t_win				win_game;
 	t_img				img;
 	int					sound;
 }						t_setting;
