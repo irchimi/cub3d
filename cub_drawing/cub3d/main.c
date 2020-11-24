@@ -11,7 +11,7 @@ t_setting      *init_set()
     set->size_start.height = 600;
     set->size_start.width = 480;
     set->size.height = 1000;
-    set->size.width = 1000;
+    set->size.width = 1800;
     set->colors.ceilling.r = 255;
     set->colors.ceilling.g = 255;
     set->colors.ceilling.b = 255;
@@ -119,11 +119,38 @@ void            draw_right_panel(t_setting *set)
     }
 }
 
+void            draw_down_panel(t_setting *set)
+{
+    int x;
+    int y;
+    int x_end;
+    int y_end;
+
+    x_end = set->size.width;
+    y_end = set->size.height;
+    x = 0;
+    y = set->size.height - (set->size.height / 10);
+    set->img.img = mlx_new_image(set->win_start.mlx, set->size.width, set->size.height);
+    set->img.addr = mlx_get_data_addr(set->img.img, &set->img.bits_per_pixel, &set->img.line_length,
+                                 &set->img.endian);
+    while (x < x_end)
+    {
+        while (y < y_end)
+        {
+            mlx_pixel_put(set->win_start.mlx, set->win_start.mlx_win, x, y, 0x556B2F);
+            y++;
+        }
+        y = set->size.height - (set->size.height / 10);
+        x++;
+    }
+}
+
 void            draw_game_panel(t_setting *set)
 {
     draw_up_panel(set);
     draw_left_panel(set);
     draw_right_panel(set);
+    draw_down_panel(set);
 
 }
 
@@ -141,13 +168,13 @@ int             start_game(int keycode, t_setting *set)
 
 void            draw_start_menu(t_setting *set)
 {
-    char    *relative_path = "menu_start.xpm";
+    char    *relative_path = "doom_mega.xpm";
     int     img_width;
     int     img_height;
 
     set->sound = 0;
-    set->sound = fork();
-    (set->sound == 0) ? system("mpg123 sound/start.mp3") : 0;
+    //set->sound = fork();
+    //(set->sound == 0) ? system("mpg123 sound/start.mp3") : 0;
     set->win_start.mlx_win = mlx_new_window(set->win_start.mlx, set->size.width, set->size.height, "kotorina");
     set->img.img = mlx_xpm_file_to_image(set->win_start.mlx, relative_path, &img_width, &img_height);
     set->img.addr = mlx_get_data_addr(set->img.img, &set->img.bits_per_pixel, &set->img.line_length,
