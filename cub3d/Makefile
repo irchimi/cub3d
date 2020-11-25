@@ -11,18 +11,11 @@
 # **************************************************************************** #
 
 
-SRCS = 	main.c\
-		gnl.c\
-		gnl_utils.c \
-		ft_split.c \
-		error_logs.c \
-		reader.c \
-		setting_inicializ.c \
-		valid_args.c \
-		ft_substr.c \
-		ft_atoi.c \
-		is_open.c \
-		check_valid_set.c \
+SRCS = 	cub3d.c \
+		validations/ft_strncmp.c \
+		validations/valid_start_data.c \
+		validations/valid_open_file.c \
+		validations/ft_strlen.c \
 
 OBJS = ${SRCS:.c=.o}
 

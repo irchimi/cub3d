@@ -1,81 +1,68 @@
 #ifndef TYPES_H
 # define TYPES_H
 
+# define BUFFER_SIZE 1
+# define SOUND_START "/sound/start_sount.mp3"
 # include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <fcntl.h>
 
-typedef struct	s_display_sizes
+typedef struct  s_win
 {
-	int	height;
-	int	width;
-}				t_display_sizes;
+    void        *mlx;
+    void        *mlx_win;
+    int         hight;
+    int         wid;
+    int         sound;
+}               t_win;
 
-typedef struct	s_texture
+typedef struct  s_texture
 {
-	char 		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*sprite;
-}				t_texture;
+    char        *path_ea;
+    char        *path_we;
+    char        *path_no;
+    char        *path_so;
 
-typedef	struct		s_sprite
-{
-	int				x;
-	int				y;
-	struct s_sprite	*next;
-}					t_sprite;
+    char        *ptr_so;
+    char        *adr_so;
+    //todo all texture
+    int         valid_so;
+    int         valid_no;
+    int         valid_we;
+    int         valid_ea;
+    int         valid_all;
+}               t_texture;
 
-typedef struct	s_player
+typedef struct  s_player
 {
-	int			x;
-	int 		y;
-	char		direction;
-}				t_player;
+    int         x;
+    int         y;
+    int         count;
+    int         valid;
+    int         hp;
+    int         lvl;
+    int         exp;
+}               t_player;
 
-typedef struct  s_color
-{
-	int r;
-	int g;
-	int b;
-}				t_color;
 
-typedef struct s_colors_map
+typedef struct  s_map
 {
-	t_color floor;
-	t_color ceilling;
-}				t_colors_map;
+    char        *map;
+    int         hight;
+    int         wid;
+    int         start_in_file;
+    int         valid;
+}               t_map;
 
-typedef	struct	s_map
-{
-	char		**map;
-	int			len;
-	int			flag_map;
-	int			start_map;
-}				t_map;
 
-typedef struct 	s_img
+typedef struct  s_setting
 {
-	void        *img;
-    char        *addr;
-    int         bits_per_pixel;
-    int         line_length;
-    int         endian;
-}				t_img;
+    t_map       map;
+    t_player    player;
+    t_texture   texture;
+    t_win       win;
+}               t_setting;
 
-typedef struct			s_setting
-{
-	t_display_sizes		size; 
-	t_texture			texture;
-	t_player			player;
-	t_sprite			*sprite;
-	t_colors_map		colors;
-	t_map				map;
-	void				*mlx;
-	void				*mlx_win;
-	t_img				img;
-}						t_setting;
 
 #endif
