@@ -5,9 +5,7 @@
 int main(int count, char *params[])
 {
     if (valid_start_data(count, params) == -1)
-    {
-        printf("%s\n",  "error");
-        exit(1);
-    }
+        return (error_start_data());
+
     return (0);
 }

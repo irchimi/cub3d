@@ -3,5 +3,6 @@
 
 #include "types.h"
 #include "validations/validations.h"
+#include "errors/errors.h"
 
 #endif
