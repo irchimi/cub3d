@@ -23,11 +23,26 @@ typedef struct	s_display_sizes
 
 typedef struct	s_texture
 {
-	char 		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*sprite;
+	char 		*no_path;
+	char		*so_path;
+	char		*we_path;
+	char		*ea_path;
+	char		*sprite_path;
+	void		*north_ptr;
+	void		*south_ptr;
+	void		*east_ptr;
+	void		*west_ptr;
+	char		*north_adr;
+	char		*south_adr;
+	char		*east_adr;
+	char		*west_adr;
+	char		*sprite_ptr;
+	char		*sprite_adr;
+	int			height;
+	int			width;
+	int         bits_per_pixel;
+    int         line_length;
+    int         endian;
 }				t_texture;
 
 typedef	struct		s_sprite
@@ -59,7 +74,7 @@ typedef struct s_colors_map
 
 typedef	struct	s_map
 {
-	char		**map;
+	int			**map;
 	int			len;
 	int			flag_map;
 	int			start_map;
@@ -89,6 +104,7 @@ typedef struct			s_setting
 	t_win				win_game;
 	t_img				img;
 	int					sound;
+	double				*zbuffer;
 }						t_setting;
 
 #endif
