@@ -20,6 +20,10 @@ SRCS = 	cub3d.c \
 		gnl.c \
 		gnl_utils.c \
 		reader.c \
+		reader_data/reader_colors.c \
+		reader_data/reader_sizes.c \
+		reader_data/reader_textures.c \
+		draw/draw_start_menu.c \
 
 OBJS = ${SRCS:.c=.o}
 

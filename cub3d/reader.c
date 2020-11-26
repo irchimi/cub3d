@@ -23,7 +23,7 @@ t_setting   *reader_data(char *file_name, t_setting *set)
     {
         reader_sizes(set, line);
         reader_texture(set, line);
-        //read_colors();
+        reader_colors(set, line);
         //read_map();
     }
     return (set);
