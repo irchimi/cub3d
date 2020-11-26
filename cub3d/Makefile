@@ -17,6 +17,9 @@ SRCS = 	cub3d.c \
 		validations/valid_open_file.c \
 		validations/ft_strlen.c \
 		errors/error_start_data.c \
+		gnl.c \
+		gnl_utils.c \
+		reader.c \
 
 OBJS = ${SRCS:.c=.o}
 

@@ -7,5 +7,6 @@ int     valid_open_file(char    *file_name)
     file = open(file_name, O_RDONLY);
     if (file == -1)
         return (-1);
+    close(file);
     return (1);
 }
