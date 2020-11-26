@@ -1,6 +1,7 @@
 #ifndef TYPES_H
 # define TYPES_H
 
+# define ENTER 65293
 # define BUFFER_SIZE 10
 # define SOUND_START "/sound/start_sount.mp3"
 # include <stdio.h>

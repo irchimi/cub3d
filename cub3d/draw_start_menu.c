@@ -1,5 +1,15 @@
 #include "draw.h"
-#include <mlx.h>
+
+int         start_game(int keycode, t_setting *set)
+{
+    if (keycode == ENTER)
+    {
+        printf("%s\n", "start game...");
+        clear_win(set);
+        mlx_loop(set->win.mlx);
+    }
+    return (0);
+}
 
 void        draw_start_menu(t_setting *set)
 {
@@ -13,5 +23,6 @@ void        draw_start_menu(t_setting *set)
     set->win.img.addr = mlx_get_data_addr(set->win.img.img, &set->win.img.bits_per_pixel, &set->win.img.line_length,
                                  &set->win.img.endian);
     mlx_put_image_to_window(set->win.mlx, set->win.mlx_win, set->win.img.img, 0, 0);
+    mlx_hook(set->win.mlx_win, 2, 1L<<0, start_game, set);
     mlx_loop(set->win.mlx);
 }
