@@ -8,6 +8,17 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+typedef struct 	s_img
+{
+	void        *img;
+    int         hight;
+    int         wid;
+    char        *addr;
+    int         bits_per_pixel;
+    int         line_length;
+    int         endian;
+}	            t_img;
+
 typedef struct  s_win
 {
     void        *mlx;
@@ -15,6 +26,7 @@ typedef struct  s_win
     int         hight;
     int         wid;
     int         sound;
+    t_img       img;
 }               t_win;
 
 typedef struct  s_texture

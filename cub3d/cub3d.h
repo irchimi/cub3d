@@ -5,7 +5,7 @@
 #include "validations/validations.h"
 #include "errors/errors.h"
 #include "reader_data/reader_data.h"
-#include "draw/draw.h"
+#include "draw.h"
 
 void		*ft_memmove(void *dst, const void *src, size_t len);
 int		    get_next_line(int fd, char **line);
