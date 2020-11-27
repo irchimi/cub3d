@@ -35,6 +35,7 @@ SRCS = 	cub3d.c \
 		draw_game_win.c \
 		player_move.c \
 		draw_angle_mini_map.c \
+		clear_angle.c \
 
 OBJS = ${SRCS:.c=.o}
 
