@@ -2,8 +2,8 @@
 
 int     move(int keycode, t_setting *set)
 {
-    /*
-    if (keycode = A)
+    
+    if (keycode == A)
     {
         clear_angle(set);
         if (set->player.orientation == 'N')
@@ -26,15 +26,18 @@ int     move(int keycode, t_setting *set)
         set->map.map[set->player.y][set->player.x] = set->player.orientation;
         draw_angle(set);
     }
-    if (keycode = D)
+    
+    if (keycode == D)
     {
         clear_angle(set);
         if (set->player.orientation == 'N')
             set->player.orientation = 'E';
+        
         else
         {
             if (set->player.orientation == 'E')
                 set->player.orientation = 'S';
+            
             else
             {
                 if (set->player.orientation == 'S')
@@ -49,7 +52,7 @@ int     move(int keycode, t_setting *set)
         set->map.map[set->player.y][set->player.x] = set->player.orientation;
         draw_angle(set);
     }
-    */
+    
     if (keycode == RIGHT && check_next_move(set, set->player.x + 1, set->player.y) == 1)
     {
         draw_line_black(set->player.x * 5 + 5, set->player.y * 5 + 5, set->player.x * 5 + 10, set->player.y * 5 + 10, set);
@@ -82,6 +85,7 @@ int     move(int keycode, t_setting *set)
         draw_angle(set);
         draw_line_red(set->player.x * 5 + 5, set->player.y * 5 + 5, set->player.x * 5 + 10, set->player.y * 5 + 10, set);
     }
+    
     return(0);
 }
 
