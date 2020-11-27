@@ -79,11 +79,13 @@ typedef struct  s_color
 
 typedef struct  s_map
 {
-    char        *map;
+    char        **map;
     int         hight;
     int         wid;
     int         start_in_file;
+    int         start;
     int         valid;
+    char        *stat_data;
 }               t_map;
 
 

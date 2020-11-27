@@ -13,6 +13,7 @@ t_setting   *reader_colors(t_setting *set, char *line)
         set->ceilling.r = 0;
         set->ceilling.g = 0;
         set->ceilling.b = 0;
+        set->map.start = 1;
     }
     return (set);
 }

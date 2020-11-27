@@ -25,6 +25,9 @@ SRCS = 	cub3d.c \
 		reader_data/reader_textures.c \
 		draw_start_menu.c \
 		draw_utils.c \
+		reader_data/ft_strnew.c \
+		reader_data/ft_bzero.c \
+		reader_data/reader_map.c \
 
 OBJS = ${SRCS:.c=.o}
 
