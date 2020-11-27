@@ -66,6 +66,7 @@ typedef struct  s_player
     int         hp;
     int         lvl;
     int         exp;
+    char        orientation;
 }               t_player;
 
 

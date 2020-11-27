@@ -31,6 +31,8 @@ SRCS = 	cub3d.c \
 		ft_split.c \
 		ft_strdel.c \
 		validations/valid_and_init_player.c \
+		draw_mini_map.c \
+		draw_game_win.c \
 
 OBJS = ${SRCS:.c=.o}
 
@@ -43,7 +45,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -Imlx
 
 %.o: %.c
-	$(GCC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(GCC)  -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 INC=%%
 

@@ -28,6 +28,7 @@ t_setting       *init_player(t_setting *set)
             }
             set->player.x = is_in_line(set->map.map[y], 'N');
             set->player.y = y;
+            set->player.orientation = 'N';
         }
         if (is_in_line(set->map.map[y], 'W') != 0)
         {
@@ -38,6 +39,7 @@ t_setting       *init_player(t_setting *set)
             }
             set->player.x = is_in_line(set->map.map[y], 'W');
             set->player.y = y;
+            set->player.orientation = 'W';
         }
         if (is_in_line(set->map.map[y], 'S') != 0)
         {
@@ -48,6 +50,7 @@ t_setting       *init_player(t_setting *set)
             }
             set->player.x = is_in_line(set->map.map[y], 'S');
             set->player.y = y;
+            set->player.orientation = 'S';
         }
         if (is_in_line(set->map.map[y], 'E') != 0)
         {
@@ -58,6 +61,7 @@ t_setting       *init_player(t_setting *set)
             }
             set->player.x = is_in_line(set->map.map[y], 'E');
             set->player.y = y;
+            set->player.orientation = 'E';
         }
         y++;
     }

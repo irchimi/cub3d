@@ -6,6 +6,8 @@ int         start_game(int keycode, t_setting *set)
     {
         printf("%s\n", "start game...");
         clear_win(set);
+        draw_mini_map(set);
+        //draw_game_win(set);
         mlx_loop(set->win.mlx);
     }
     return (0);
