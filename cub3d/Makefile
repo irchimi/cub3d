@@ -33,6 +33,7 @@ SRCS = 	cub3d.c \
 		validations/valid_and_init_player.c \
 		draw_mini_map.c \
 		draw_game_win.c \
+		player_move.c \
 
 OBJS = ${SRCS:.c=.o}
 
