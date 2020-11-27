@@ -30,6 +30,7 @@ SRCS = 	cub3d.c \
 		reader_data/reader_map.c \
 		ft_split.c \
 		ft_strdel.c \
+		validations/valid_and_init_player.c \
 
 OBJS = ${SRCS:.c=.o}
 

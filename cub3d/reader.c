@@ -7,14 +7,9 @@ t_setting   *init_data(char *file_name)
     set = (t_setting *)malloc(sizeof(t_setting));
     set->map.stat_data = "";
     set = reader_data(file_name, set);
-
-    int i = 0;
-    while (set->map.map[i])
-    {
-        printf("%s\n", set->map.map[i]);
-        i++;
-    }
-    
+    set->player.x = -1;
+    set->player.y = -1;
+    set = init_player(set);
     return (set);
 }
 
