@@ -26,5 +26,6 @@ void        clear_angle_N(t_setting *set);
 void        clear_angle_S(t_setting *set);
 void        clear_angle_W(t_setting *set);
 void        clear_angle_E(t_setting *set);
+void        move_in_map(t_setting *set, char c);
 
 #endif

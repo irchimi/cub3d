@@ -67,8 +67,8 @@ typedef struct  s_player
 {
     int         x;
     int         y;
-    int         x_dr;
-    int         y_dr;
+    int         x_next;
+    int         y_next;
     int         count;
     int         valid;
     int         hp;

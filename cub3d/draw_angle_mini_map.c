@@ -1,5 +1,6 @@
 #include "draw.h"
 
+
 void        draw_angle(t_setting *set)
 {
     if (set->player.orientation == 'N')
@@ -11,6 +12,7 @@ void        draw_angle(t_setting *set)
     if (set->player.orientation == 'W')
         draw_angle_W(set);
 }
+
 
 void        draw_angle_W(t_setting *set)
 {
