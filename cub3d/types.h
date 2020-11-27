@@ -5,7 +5,9 @@
 # define RIGHT 65363
 # define LEFT 65361
 # define UP 65362
-#define DOWN 65364
+# define DOWN 65364
+# define A 97
+# define D 100
 # define BUFFER_SIZE 10
 # define SOUND_START "/sound/start_sount.mp3"
 # include <stdio.h>

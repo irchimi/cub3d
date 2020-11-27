@@ -16,5 +16,7 @@ void        draw_line_black(int x, int y, int x_end, int y_end, t_setting *set);
 void        draw_line_red(int x, int y, int x_end, int y_end, t_setting *set);
 void        draw_line_green(int x, int y, int x_end, int y_end, t_setting *set);
 int         check_next_move(t_setting *set, int x_next, int y_next);
+void        draw_angle(t_setting *set);
+void        clear_angle(t_setting *set);
 
 #endif
