@@ -2,6 +2,10 @@
 # define TYPES_H
 
 # define ENTER 65293
+# define RIGHT 65363
+# define LEFT 65361
+# define UP 65362
+#define DOWN 65364
 # define BUFFER_SIZE 10
 # define SOUND_START "/sound/start_sount.mp3"
 # include <stdio.h>
@@ -61,6 +65,8 @@ typedef struct  s_player
 {
     int         x;
     int         y;
+    int         x_dr;
+    int         y_dr;
     int         count;
     int         valid;
     int         hp;
