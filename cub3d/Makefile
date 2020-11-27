@@ -28,6 +28,8 @@ SRCS = 	cub3d.c \
 		reader_data/ft_strnew.c \
 		reader_data/ft_bzero.c \
 		reader_data/reader_map.c \
+		ft_split.c \
+		ft_strdel.c \
 
 OBJS = ${SRCS:.c=.o}
 

@@ -13,5 +13,8 @@ t_setting   *init_data(char *file_name);
 t_setting   *read_size(t_setting *set, char *line);
 char		*ft_strjoin(char const *s1, char const *s2);
 t_setting   *reader_data(char *file_name, t_setting *set);
+char		**ft_split(char const *s, char c);
+void	    ft_strdel(char **s);
+t_setting   *init_map(t_setting *set, char  **data);
 
 #endif
