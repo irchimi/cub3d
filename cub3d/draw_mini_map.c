@@ -54,6 +54,7 @@ void    draw_mini_map(t_setting *set)
         y++;
         y_dr += 5;
     }
+    draw_line_anover(0, set->win.hight / 2, set->win.wid, set->win.hight, set);
     draw_line_red(set->player.x * 5 + 5, set->player.y * 5 + 5, set->player.x * 5 + 10, set->player.y * 5 + 10, set);
     draw_angle(set);
     mlx_hook(set->win.mlx_win, 2, 1L<<0, move, set);

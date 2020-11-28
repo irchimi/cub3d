@@ -15,6 +15,16 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+typedef struct  s_raicast_data
+{
+    int         x_DR;
+    int         y_DR;
+    int         speed;
+    int         plane_x;
+    int         plane_Y;
+}               t_raicast_data;
+
+
 typedef struct 	s_img
 {
 	void        *img;
@@ -95,17 +105,20 @@ typedef struct  s_map
     int         start;
     int         valid;
     char        *stat_data;
+    int         def_size;
 }               t_map;
 
 
 typedef struct  s_setting
 {
-    t_map       map;
-    t_player    player;
-    t_texture   texture;
-    t_win       win;
-    t_color     floor;
-    t_color     ceilling;
+    t_map           map;
+    t_player        player;
+    t_texture       texture;
+    t_win           win;
+    t_color         floor;
+    t_color         ceilling;
+    int             soind;
+    t_raicast_data  data;
 }               t_setting;
 
 

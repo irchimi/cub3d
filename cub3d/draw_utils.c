@@ -34,7 +34,7 @@ void    draw_line_anover(int x, int y, int x_end, int y_end, t_setting *set)
     {
         while (y < y_end)
         {
-            mlx_pixel_put(set->win.mlx, set->win.mlx_win, x, y, 0xFFFF00);
+            mlx_pixel_put(set->win.mlx, set->win.mlx_win, x, y, 0xAFFCAC);
             y++;
         }
         x++;
