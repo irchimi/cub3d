@@ -118,7 +118,7 @@ typedef struct  s_setting
     t_color         floor;
     t_color         ceilling;
     int             soind;
-    t_raicast_data  data;
+    t_raicast_data  data_raicat;
 }               t_setting;
 
 
