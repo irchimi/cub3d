@@ -1,11 +1,9 @@
 #include "cub3d.h"
 #include "draw.h"
-
+#include <math.h>
 
 static  void    draw_frame(t_setting *set)
 {
-    int len;
-    int vector;
 
     
 }

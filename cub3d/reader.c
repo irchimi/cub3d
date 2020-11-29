@@ -10,11 +10,14 @@ t_setting   *init_data(char *file_name)
     set->player.x = -1;
     set->player.y = -1;
     set = init_player(set);
-    set->data_raicat.speed = 10;
-    set->data_raicat.x_DR = -1;
-    set->data_raicat.y_DR = 0;
-    set->data_raicat.plane_x = 0;
-    set->data_raicat.plane_Y = 0.66;
+    set->data_raic.rotSpeed = 10;
+    set->data_raic.dirX = -1;
+    set->data_raic.dirY = 0;
+    set->data_raic.planeX = 0;
+    set->data_raic.planeX = 0.66;
+    set->data_raic.posX = set->player.x;
+    set->data_raic.posY = set->player.y;
+    set->data_raic.moveSpeed = 1;
     return (set);
 }
 

@@ -17,11 +17,16 @@
 
 typedef struct  s_raicast_data
 {
-    int         x_DR;
-    int         y_DR;
-    int         speed;
-    int         plane_x;
-    int         plane_Y;
+	double posX;
+	double posY;
+	double dirX;
+	double dirY;
+	double planeX;
+	double planeY;
+	void	*mlx;
+	void	*win;
+	double	moveSpeed;
+	double	rotSpeed;
 }               t_raicast_data;
 
 
@@ -118,7 +123,7 @@ typedef struct  s_setting
     t_color         floor;
     t_color         ceilling;
     int             soind;
-    t_raicast_data  data_raicat;
+    t_raicast_data  data_raic;
 }               t_setting;
 
 
