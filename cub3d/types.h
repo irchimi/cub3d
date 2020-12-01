@@ -15,8 +15,10 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-typedef struct  s_raicast_data
+typedef struct	s_raicast_data
 {
+    int    height;
+    int    wid;
 	double posX;
 	double posY;
 	double dirX;
@@ -27,8 +29,24 @@ typedef struct  s_raicast_data
 	void	*win;
 	double	moveSpeed;
 	double	rotSpeed;
-}               t_raicast_data;
-
+    int    **map;
+    double cameraX;
+    double rayDirX;
+    double rayDirY;
+    int mapX;
+    int mapY;
+    double sideDistX;
+	double sideDistY;
+    double deltaDistX;
+	double deltaDistY;
+	double perpWallDist;
+    int stepX;
+	int stepY;
+    int hit;
+    int drawStart;
+    int drawEnd;
+	int side; 
+}				t_raicast_data;
 
 typedef struct 	s_img
 {
@@ -47,7 +65,6 @@ typedef struct  s_win
     void        *mlx_win;
     int         hight;
     int         wid;
-    int         sound;
     t_img       img;
 }               t_win;
 
@@ -122,8 +139,6 @@ typedef struct  s_setting
     t_win           win;
     t_color         floor;
     t_color         ceilling;
-    int             soind;
-    t_raicast_data  data_raic;
 }               t_setting;
 
 

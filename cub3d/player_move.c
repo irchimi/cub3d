@@ -2,6 +2,7 @@
 
 int     move(int keycode, t_setting *set)
 {
+    /*
     if (keycode == A)
     {
         clear_angle(set);
@@ -59,10 +60,11 @@ int     move(int keycode, t_setting *set)
         move_in_map(set, 'U');
     if (keycode == DOWN)
         move_in_map(set, 'D');
-    
+    */
     return(0);
 }
 
+/*
 void    move_in_map(t_setting *set, char c)
 {
     set->player.x_next = set->player.x;
@@ -128,3 +130,4 @@ int     check_next_move(t_setting *set, int x_next, int y_next)
         return (-1);
     return (1);
 }
+*/
