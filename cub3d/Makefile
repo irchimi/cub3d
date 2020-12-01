@@ -23,7 +23,6 @@ SRCS = 	cub3d.c \
 		reader_data/reader_colors.c \
 		reader_data/reader_sizes.c \
 		reader_data/reader_textures.c \
-		draw_start_menu.c \
 		draw_utils.c \
 		reader_data/ft_strnew.c \
 		reader_data/ft_bzero.c \
@@ -31,11 +30,8 @@ SRCS = 	cub3d.c \
 		ft_split.c \
 		ft_strdel.c \
 		validations/valid_and_init_player.c \
-		draw_mini_map.c \
 		draw_game_win.c \
 		player_move.c \
-		draw_angle_mini_map.c \
-		clear_angle.c \
 
 OBJS = ${SRCS:.c=.o}
 
