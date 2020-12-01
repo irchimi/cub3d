@@ -125,11 +125,11 @@ void	raicast(t_raicast_data *data)
 
 		int	color;
 		if (data->map[data->mapY][data->mapX] == 1)
-			color = 0xFF0000;
+			color = 0x00FF0000;
 		else if (data->map[data->mapY][data->mapX] == 2)
-			color = 0x00FF00;
+			color = 0x0000FF00;
 		else
-			color = 0xFFFF00;
+			color = 0x000000FF;
 		
 		if (data->side == 1)
 			color = color / 2;
