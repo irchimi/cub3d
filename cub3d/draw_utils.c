@@ -1,4 +1,5 @@
 #include "cub3d.h"
+#include "draw.h"
 
 void    clear_win(t_setting *set)
 {
@@ -99,5 +100,36 @@ void    draw_line_green(int x, int y, int x_end, int y_end, t_setting *set)
         }
         x++;
         y = y_c;
+    }
+}
+
+void	draw_frame(t_raicast_data *data, int x, int y_srart, int y_end, int color)
+{
+	int	y;
+
+	y = y_srart;
+	while (y <= y_end)
+	{
+		mlx_pixel_put(data->mlx, data->win, x, y, color);
+		y++;
+	}
+}
+
+void    clear_win_game(t_raicast_data *set)
+{
+    int x;
+    int y;
+
+    x = 0;
+    y = 0;
+    while (x < set->wid)
+    {
+        while (y < set->height )
+        {
+            mlx_pixel_put(set->mlx, set->win, x, y, 0x000000);
+            y++;
+        }
+        x++;
+        y = 0;
     }
 }

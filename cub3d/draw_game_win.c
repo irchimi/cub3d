@@ -2,44 +2,6 @@
 #include "draw.h"
 #include <math.h>
 
-double	my_abs(double x)
-{
-	if (x < 0)
-		return (x * (-1));
-	return (x);
-}
-
-void	draw_frame(t_raicast_data *data, int x, int y_srart, int y_end, int color)
-{
-	int	y;
-
-	y = y_srart;
-	while (y <= y_end)
-	{
-		mlx_pixel_put(data->mlx, data->win, x, y, color);
-		y++;
-	}
-}
-
-void    clear_win_game(t_raicast_data *set)
-{
-    int x;
-    int y;
-
-    x = 0;
-    y = 0;
-    while (x < set->wid)
-    {
-        while (y < set->height )
-        {
-            mlx_pixel_put(set->mlx, set->win, x, y, 0x000000);
-            y++;
-        }
-        x++;
-        y = 0;
-    }
-}
-
 void	perform(t_raicast_data *data)
 {
 	while (data->hit == 0)
@@ -143,51 +105,6 @@ void	raicast(t_raicast_data *data)
 int	main_loop(t_raicast_data *data)
 {
 	raicast(data);
-	return (0);
-}
-
-int			player_move(int key, t_raicast_data *data)
-{
-	printf("%d\n", key);
-	printf("%f  -  %f\n", data->pos_x, data->pos_y);
-	if (key == UP)
-	{
-		clear_win_game(data);
-		if (!data->map[(int)(data->pos_x + data->dir_x * data->move_speed)][(int)(data->pos_y)])
-			data->pos_x += data->dir_x * data->move_speed;
-		if (!data->map[(int)(data->pos_x)][(int)(data->pos_y + data->dir_y * data->move_speed)])
-			data->pos_y += data->dir_y * data->move_speed;
-	}
-	if (key == DOWN)
-	{
-		clear_win_game(data);
-		if (!data->map[(int)(data->pos_x - data->dir_x * data->move_speed)][(int)(data->pos_y)])
-			data->pos_x -= data->dir_x * data->move_speed;
-		if (!data->map[(int)(data->pos_x)][(int)(data->pos_y - data->dir_y * data->move_speed)])
-			data->pos_y -= data->dir_y * data->move_speed;
-	}
-	if (key == RIGHT)
-	{
-		clear_win_game(data);
-		double oldDirX = data->dir_x;
-		data->dir_x = data->dir_x * cos(-data->rot_speed) - data->dir_y * sin(-data->rot_speed);
-		data->dir_y = oldDirX * sin(-data->rot_speed) + data->dir_y * cos(-data->rot_speed);
-		double oldPlaneX = data->plane_x;
-		data->plane_x = data->plane_x * cos(-data->rot_speed) - data->plane_y * sin(-data->rot_speed);
-		data->plane_y = oldPlaneX * sin(-data->rot_speed) + data->plane_y * cos(-data->rot_speed);
-        
-	}
-	if (key == LEFT)
-	{
-		clear_win_game(data);
-		double oldDirX = data->dir_x;
-		data->dir_x = data->dir_x * cos(data->rot_speed) - data->dir_y * sin(data->rot_speed);
-		data->dir_y = oldDirX * sin(data->rot_speed) + data->dir_y * cos(data->rot_speed);
-		double oldPlaneX = data->plane_x;
-		data->plane_x = data->plane_x * cos(data->rot_speed) - data->plane_y * sin(data->rot_speed);
-		data->plane_y = oldPlaneX * sin(data->rot_speed) + data->plane_y * cos(data->rot_speed);
-        
-	}
 	return (0);
 }
 
